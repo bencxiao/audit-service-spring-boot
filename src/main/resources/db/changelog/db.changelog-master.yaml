@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: ben
+      changes:
+        - createTable:
+            tableName: audit_events
+            columns:
+              - column:
+                  name: event_id
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: service_name
+                  type: varchar(255)
+              - column:
+                  name: event_type
+                  type: varchar(255)
+              - column:
+                  name: entity_type
+                  type: varchar(255)
+              - column:
+                  name: entity_id
+                  type: varchar(255)
+              - column:
+                  name: timestamp
+                  type: timestamp
+              - column:
+                  name: payload
+                  type: text
