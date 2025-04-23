@@ -29,6 +29,4 @@ public class AuditEvent {
 
     @Column(name = "payload", columnDefinition = "TEXT")
     private String rawPayload;
-
-    // Getters and setters omitted for brevity
 }
