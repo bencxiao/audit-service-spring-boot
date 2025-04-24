@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: rotate-audit-events-${date}
+      author: ben
+      changes:
+        - renameTable:
+            oldTableName: audit_events
+            newTableName: audit_events_${date}
+  - changeSet:
+      id: recreate-table-${date}
+      author: ben
+      changes:
+        - createTable:
+            tableName: audit_events
+            columns:
+              - column:
+                  name: event_id
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: service_name
+                  type: varchar(255)
+              - column:
+                  name: event_type
+                  type: varchar(255)
+              - column:
+                  name: entity_type
+                  type: varchar(255)
+              - column:
+                  name: entity_id
+                  type: varchar(255)
+              - column:
+                  name: timestamp
+                  type: timestamp
+              - column:
+                  name: payload
+                  type: text
